@@ -65,15 +65,42 @@ function clearCanvas() {
 function drawRocket() {
     clearCanvas();      
 
+    // rectangle
     ctx.fillStyle = "white";
     ctx.fillRect(rocketX, rocketY, 20, 50);; 
+
+
+    // triangle
     ctx.beginPath();
     ctx.moveTo(rocketX + 10, rocketY - 15); 
     ctx.lineTo(rocketX, rocketY);          
     ctx.lineTo(rocketX + 20, rocketY);      
     ctx.closePath();
     ctx.fillStyle = "white";
+    ctx.fill();   
+
+    // left wing 
+    ctx.beginPath();
+    ctx.moveTo(rocketX, rocketY + 30);
+    ctx.lineTo(rocketX - 10, rocketY + 50);
+    ctx.lineTo(rocketX, rocketY + 50); 
+    ctx.closePath();
     ctx.fill();
+
+    // right wing 
+    ctx.beginPath();
+    ctx.moveTo(rocketX + 20 , rocketY + 30);
+    ctx.lineTo(rocketX + 30 , rocketY + 50);
+    ctx.lineTo(rocketX + 20, rocketY  + 50);
+    ctx.closePath();
+    ctx.fill();
+
+
+
+
+
+
+
 
     if (time < burnTime) {
     let flameHeight = 10 + Math.random() * 5; 
