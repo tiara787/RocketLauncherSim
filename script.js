@@ -19,6 +19,8 @@ let acceleration = 0;
 let time = 0;
 let running = false;
 let safetyFactor = 1.05;
+let burnTime = 0;
+drawRocket();
 
 
 document.getElementById("launchButton").addEventListener("click", () => {
@@ -26,7 +28,7 @@ document.getElementById("launchButton").addEventListener("click", () => {
 
     const mass = parseFloat(document.getElementById("mass").value);
     const thrust = parseFloat(document.getElementById("thrust").value);
-    const burnTime = parseFloat(document.getElementById("burnTime").value);
+    burnTime = parseFloat(document.getElementById("burnTime").value);
     const dragCoefficient = parseFloat(document.getElementById("drag").value);
 
 
@@ -64,7 +66,29 @@ function drawRocket() {
     clearCanvas();      
 
     ctx.fillStyle = "white";
-    ctx.fillRect(rocketX, rocketY, 20, 50);;  
+    ctx.fillRect(rocketX, rocketY, 20, 50);; 
+    ctx.beginPath();
+    ctx.moveTo(rocketX + 10, rocketY - 15); 
+    ctx.lineTo(rocketX, rocketY);          
+    ctx.lineTo(rocketX + 20, rocketY);      
+    ctx.closePath();
+    ctx.fillStyle = "white";
+    ctx.fill();
+
+    if (time < burnTime) {
+    let flameHeight = 10 + Math.random() * 5; 
+    let flameGradient = ctx.createLinearGradient(rocketX + 10, rocketY + 50, rocketX + 10, rocketY + 50 + flameHeight);
+    flameGradient.addColorStop(0, "yellow");
+    flameGradient.addColorStop(1, "red"); 
+    ctx.beginPath();
+    ctx.moveTo(rocketX + 10, rocketY + 50); 
+    ctx.lineTo(rocketX, rocketY + 50 + flameHeight); 
+    ctx.lineTo(rocketX + 20, rocketY + 50 + flameHeight); 
+    ctx.closePath();
+    ctx.fillStyle = "orange";
+    ctx.fill();
+    
+}
 }
 
 function updateRocket( mass, thrust, burnTime, dragCoefficient){
@@ -101,10 +125,11 @@ function animate( mass, thrust, burnTime, dragCoefficient) {
 
 
     if (!running) return;
-    if (rocketY < -50) {
+    if (rocketY < -60 || rocketY > 700) {
         running = false;
         return;
     }
+
     updateRocket(mass, thrust, burnTime, dragCoefficient);    
     drawRocket();      
     animationId = requestAnimationFrame(() => animate(mass, thrust, burnTime, dragCoefficient));
