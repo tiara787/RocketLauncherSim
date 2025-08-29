@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocket Launch Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>🚀 Rocket Launch Simulator 🚀</h1>
+    <div id="container">
+    <canvas id="rocketCanvas"></canvas>
+
+   
+
+
+        <div id="parameters">
+    <label> Mass (kg):  <input id="mass" type="number" value="100"></label>
+    <label> Thrust (N):   <input id="thrust" type="number" value="500"></label>
+    <label> Burn Time (s):   <input id="burnTime" type="number" value="10"></label>
+    <label>Drag Coefficient:   <input id="drag" type="number" step="0.01" value="0.5"></label>
+    <button id="launchButton">Launch</button>
+    </div>
+    </div>
+    <div id="telemetry">
+    <p id="vel">Velocity: 0</p>
+    <p id="acc">Acceleration: 0</p>
+    <p id="fuel">Fuel time left: 0</p>
+    <p id="netAcc">Net Acceleration: 0 m/s²</p>
+</div>
+
+ <script src="script.js"></script>
+
+</body>
+</html>
