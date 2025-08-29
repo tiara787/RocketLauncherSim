@@ -6,10 +6,11 @@ body {
 }
 
 canvas {
-    border: 1px solid white;
+    border: 1px solid rgb(111, 46, 155);
     display: block;
     margin: 20px auto;
     background-color: #000022;
+    border-radius: 30px;
 }
 
 #container {
@@ -26,7 +27,6 @@ canvas {
     flex-direction: column;
     gap: 20px;
     padding: 8px 12px;
-    border: 1px solid #676767;
     border-radius: 4px;
     font-size: 14px;
     margin-bottom: 10px;
@@ -35,10 +35,27 @@ canvas {
 
 }
 
+#telemetry {
+    position: absolute;
+    top: 190px;
+    left: 100px; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    
+    
+
+}
+
+
 #launchButton{
 
      padding: 10px 20px;
-    background-color: #c93aa8;
+    background-color: rgb(111, 46, 155);
     color: white;
     border: none;
     border-radius: 5px;
@@ -47,3 +64,11 @@ canvas {
     transition: background 0.3s;
     
 }
+
+input    {
+            background-color: rgb(111, 46, 155);
+            border: #000022;
+            color: aliceblue;
+            border-radius: 30px;
+
+        }
