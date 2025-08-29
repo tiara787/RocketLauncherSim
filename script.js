@@ -165,7 +165,7 @@ function animate( mass, thrust, burnTime, dragCoefficient) {
 
 
     if (!running) return;
-    if (rocketY < -60 || rocketY > 700) {
+    if (rocketY < -60 || rocketY > 900) {
         running = false;
         return;
     }
