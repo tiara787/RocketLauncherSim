@@ -138,7 +138,7 @@ function updateRocket( mass, thrust, burnTime, dragCoefficient){
 
     // this will apply thrust only while burning 
     let currentThrust = time < burnTime ? thrust : 0; 
-    // 
+    
     let drag = dragCoefficient * velocity * velocity  * Math.sign(velocity);
 
     acceleration = (currentThrust - mass  * g - drag ) / mass;

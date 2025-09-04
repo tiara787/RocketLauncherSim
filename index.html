@@ -9,6 +9,14 @@
 <body>
     <h1>🚀 Rocket Launch Simulator 🚀</h1>
     <div id="container">
+
+        <div id="telemetry">
+    <p id="vel">Velocity: 0</p>
+    <p id="acc">Acceleration: 0</p>
+    <p id="fuel">Fuel time left: 0</p>
+    <p id="netAcc">Net Acceleration: 0 m/s²</p>
+    </div>
+
     <canvas id="rocketCanvas"></canvas>
 
    
@@ -21,12 +29,7 @@
     <label>Drag Coefficient:   <input id="drag" type="number" step="0.01" value="0.5"></label>
     <button id="launchButton">Launch</button>
     </div>
-    </div>
-    <div id="telemetry">
-    <p id="vel">Velocity: 0</p>
-    <p id="acc">Acceleration: 0</p>
-    <p id="fuel">Fuel time left: 0</p>
-    <p id="netAcc">Net Acceleration: 0 m/s²</p>
+    
 </div>
 
  <script src="script.js"></script>
